@@ -31,6 +31,7 @@ def plot_data(Z):
     CumSum = np.cumsum(Threshold)
     k=0
     EnIo = 0.
+    Elements = ['', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds', 'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og']
     for n in range(1,len(Threshold)):
         #Finding the current ionization energy for the given value of Z
         if Z >CumSum[n-1]:
@@ -64,6 +65,8 @@ def plot_data(Z):
     lines['Z2'].set_data([Z],[-EnIo])
     #Updatind the vertical line
     lines['Z1'].set_data([Z,Z],[0,-30000])
+    t1.set_position((Z, EnIo-30 ))
+    t1.set_text(Elements[int(Z)])
     fig.canvas.draw_idle()
     
     
@@ -131,7 +134,7 @@ if __name__ == "__main__":
     lines['Z2'], = ax1.plot([],[],label='',color='C0',marker='o')
     #Vertical line to show where is the Z value
     lines['Z1'], = ax1.plot([],[],label='',color='C0')
-
+    t1 = ax3.text(0, 0,  str(''))
     ax1.legend(loc='upper right')
 
     fig.suptitle(r"Énergie d'ionisation sans couplage e-e", fontsize=16)
