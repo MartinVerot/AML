@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Ionization energy without electron repulsion.
+Integrals for H_2^+ S, I, J, E
 
 Informations
 ------------
@@ -75,20 +75,8 @@ if __name__ == "__main__":
     #On trouve le minimum de E_g
     Emin = minimize(Eg,2.5,args=(0))    
     ax2.plot(Emin.x,[Emin.fun],label='R : {:.2f} E : {:.4f}'.format(Emin.x[0],Emin.fun),marker='o')
-    #print(Emin)
-    #print(Eg(Emin.x,0))
     ax2.legend(loc='upper right')
 
-    #ax3.plot(xs,Eg2(0,xs),label='$E_g\'$')
-    #ax3.plot(xs,Eu2(0,xs),label='$E_u\'$')
-    #ax3.set_xlabel('R')
-    #ax3.set_ylabel('$\Phi_\mathrm{u}$')
-    #ax3.legend(loc='upper right')
-    #ax3.set_ylim(np.min([Eg2(0,xs),Eu2(0,xs)]),0.4)
-    #ax4.plot(xs,Phi_u(xs,3)**2)
-    #ax4.set_xlabel('x')
-    #ax4.set_ylabel('$|\Phi_\mathrm{u}|^2$')
-    #ax4.set_ylim(0,0.5)
  
     #fig.suptitle(r"Énergie d'ionisation sans couplage e-e", fontsize=16)
     plt.show()

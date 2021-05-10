@@ -65,7 +65,7 @@ def plot_data(Z):
     lines['Z2'].set_data([Z],[-EnIo])
     #Updatind the vertical line
     lines['Z1'].set_data([Z,Z],[0,-30000])
-    t1.set_position((Z, EnIo-30 ))
+    t1.set_position((Z+1, EnIo-30 ))
     t1.set_text(Elements[int(Z)])
     fig.canvas.draw_idle()
     
